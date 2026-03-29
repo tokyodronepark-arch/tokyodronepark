@@ -59,7 +59,9 @@
   <!-- ===== 1. HERO ===== -->
   <section class="hero" id="hero">
     <div class="hero-video-wrap">
-      <div class="hero-yt-bg" id="heroYT"></div>
+      <div class="hero-yt-bg">
+        <iframe src="https://www.youtube.com/embed/k4BFOYoIpT4?autoplay=1&mute=1&loop=1&playlist=k4BFOYoIpT4&controls=0&showinfo=0&rel=0&modestbranding=1&start=50&iv_load_policy=3&disablekb=1&fs=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
@@ -409,35 +411,5 @@
 
   <script src="script.js"></script>
 
-  <!-- YouTube背景動画 -->
-  <script>
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
-
-    var ytPlayer;
-    function onYouTubeIframeAPIReady() {
-      ytPlayer = new YT.Player('heroYT', {
-        videoId: 'k4BFOYoIpT4',
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          loop: 1,
-          playlist: 'k4BFOYoIpT4',
-          controls: 0,
-          showinfo: 0,
-          rel: 0,
-          modestbranding: 1,
-          iv_load_policy: 3,
-          disablekb: 1,
-          fs: 0,
-          start: 50
-        },
-        events: {
-          onReady: function(e) { e.target.playVideo(); }
-        }
-      });
-    }
-  </script>
 </body>
 </html>
