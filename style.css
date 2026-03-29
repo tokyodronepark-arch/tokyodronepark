@@ -266,17 +266,29 @@ ul { list-style: none; }
   height: 100%;
   pointer-events: none;
 }
-.hero-yt-bg iframe {
+.hero-yt-iframe {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 177.78vh !important;
-  height: 56.25vw !important;
-  min-width: 100vw !important;
-  min-height: 100vh !important;
+  /* 横長：高さ基準で幅を確保 */
+  width: 177.78vh;
+  height: 100vh;
+  /* 縦長：幅基準で高さを確保 */
+  min-width: 100vw;
+  min-height: 56.25vw;
   border: none;
   pointer-events: none;
+}
+
+/* モバイル縦向き対応 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .hero-yt-iframe {
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.78vh;
+  }
 }
 .hero-overlay {
   position: absolute; inset: 0;
