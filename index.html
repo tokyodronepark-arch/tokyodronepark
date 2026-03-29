@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>東京ドローンパーク | 今日、どこの空を遊ぼうか？</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#hero" class="site-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M20 8 C20 8 28 14 28 20 C28 26 20 32 20 32 C20 32 12 26 12 20 C12 14 20 8 20 8Z" fill="currentColor" opacity="0.15"/>
+            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+            <line x1="20" y1="5" x2="20" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="20" y1="28" x2="20" y2="35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="5" y1="20" x2="12" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="28" y1="20" x2="35" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-tagline">空と遊ぶメディア</span>
+          <span class="logo-ja">東京ドローンパーク</span>
+          <span class="logo-en">-Tokyo Drone Park-</span>
+        </div>
+      </a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="#works">事例紹介</a></li>
+          <li><a href="map.html">空マップ</a></li>
+          <li><a href="#flight">飛行申請に関して</a></li>
+          <li><a href="#contact" class="nav-btn">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#works" class="mobile-link">事例紹介</a></li>
+      <li><a href="map.html" class="mobile-link">空マップ</a></li>
+      <li><a href="#flight" class="mobile-link">飛行申請に関して</a></li>
+      <li><a href="#contact" class="mobile-link">お問い合わせ</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== 1. HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-video-wrap">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+        <source src="../ヘッダー動画/ヘッダー動画.mov" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title" aria-label="今日は、どの空を遊ぼうか。">
+        <span class="hero-line">今日は、</span>
+        <span class="hero-line">どの空を遊ぼうか。</span>
+      </h1>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== 2. WORKS ===== -->
+  <section class="section-works" id="works">
+    <div class="container">
+      <div class="section-header center">
+        <h2 class="works-title-en">WORKS</h2>
+        <p class="section-eyebrow">事例紹介</p>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="works-filter" role="tablist">
+        <button class="works-filter-btn active" data-filter="all" role="tab">すべて</button>
+        <button class="works-filter-btn" data-filter="jichitai" role="tab">自治体</button>
+        <button class="works-filter-btn" data-filter="hanabi" role="tab">花火大会</button>
+        <button class="works-filter-btn" data-filter="kanko" role="tab">観光</button>
+        <button class="works-filter-btn" data-filter="wedding" role="tab">ウェディング</button>
+        <button class="works-filter-btn" data-filter="sports" role="tab">スポーツ</button>
+      </div>
+
+      <!-- Works grid -->
+      <div class="works-grid" id="worksGrid">
+
+        <!-- 自治体 -->
+        <a class="work-card reveal" data-category="jichitai"
+           href="./works/chofu-koho.html">
+          <div class="work-card-media work-card-media--yt">
+            <img src="https://img.youtube.com/vi/OEJQrviZ5Yo/maxresdefault.jpg" alt="調布市 広報動画" loading="lazy" />
+            <div class="yt-play-btn" aria-hidden="true"><svg viewBox="0 0 68 48" width="54" height="38"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.7 2C55.4.6 34 .6 34 .6S12.6.6 7.3 2A8.5 8.5 0 0 0 1.5 7.7C0 13 0 24 0 24s0 11 1.5 16.3A8.5 8.5 0 0 0 7.3 46C12.6 47.4 34 47.4 34 47.4s21.4 0 26.7-1.4a8.5 8.5 0 0 0 5.8-5.7C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+          </div>
+          <div class="work-card-body">
+            <span class="work-tag work-tag--jichitai">自治体</span>
+            <h3 class="work-card-title">調布市 広報動画</h3>
+            <p class="work-card-location"><svg class="pin-icon" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="currentColor"/></svg>東京都調布市</p>
+          </div>
+        </a>
+
+        <!-- 花火大会 1 -->
+        <a class="work-card reveal" data-category="hanabi" style="transition-delay:0.08s"
+           href="./works/chofu-hanabi-38.html">
+          <div class="work-card-media work-card-media--yt">
+            <img src="https://img.youtube.com/vi/XYDlt3i7XVM/maxresdefault.jpg" alt="第38回 調布花火（公式動画）" loading="lazy" />
+            <div class="yt-play-btn" aria-hidden="true"><svg viewBox="0 0 68 48" width="54" height="38"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.7 2C55.4.6 34 .6 34 .6S12.6.6 7.3 2A8.5 8.5 0 0 0 1.5 7.7C0 13 0 24 0 24s0 11 1.5 16.3A8.5 8.5 0 0 0 7.3 46C12.6 47.4 34 47.4 34 47.4s21.4 0 26.7-1.4a8.5 8.5 0 0 0 5.8-5.7C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+          </div>
+          <div class="work-card-body">
+            <span class="work-tag work-tag--hanabi">花火大会</span>
+            <h3 class="work-card-title">第38回 調布花火（公式動画）</h3>
+            <p class="work-card-location"><svg class="pin-icon" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="currentColor"/></svg>東京都調布市</p>
+          </div>
+        </a>
+
+        <!-- 花火大会 2 -->
+        <a class="work-card reveal" data-category="hanabi" style="transition-delay:0.16s"
+           href="./works/chofu-hanabi-40.html">
+          <div class="work-card-media work-card-media--yt">
+            <img src="https://img.youtube.com/vi/-4_P7M84UVw/maxresdefault.jpg" alt="第40回 調布花火（公式動画）" loading="lazy" />
+            <div class="yt-play-btn" aria-hidden="true"><svg viewBox="0 0 68 48" width="54" height="38"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.7 2C55.4.6 34 .6 34 .6S12.6.6 7.3 2A8.5 8.5 0 0 0 1.5 7.7C0 13 0 24 0 24s0 11 1.5 16.3A8.5 8.5 0 0 0 7.3 46C12.6 47.4 34 47.4 34 47.4s21.4 0 26.7-1.4a8.5 8.5 0 0 0 5.8-5.7C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+          </div>
+          <div class="work-card-body">
+            <span class="work-tag work-tag--hanabi">花火大会</span>
+            <h3 class="work-card-title">第40回 調布花火（公式動画）</h3>
+            <p class="work-card-location"><svg class="pin-icon" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="currentColor"/></svg>東京都調布市</p>
+          </div>
+        </a>
+
+        <!-- 花火大会 3 -->
+        <a class="work-card reveal" data-category="hanabi"
+           href="./works/sagamiko-hanabi.html">
+          <div class="work-card-media work-card-media--yt">
+            <img src="https://img.youtube.com/vi/iTBbRxLy9ZA/maxresdefault.jpg" alt="さがみ湖花火大会 湖上祭" loading="lazy" />
+            <div class="yt-play-btn" aria-hidden="true"><svg viewBox="0 0 68 48" width="54" height="38"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.7 2C55.4.6 34 .6 34 .6S12.6.6 7.3 2A8.5 8.5 0 0 0 1.5 7.7C0 13 0 24 0 24s0 11 1.5 16.3A8.5 8.5 0 0 0 7.3 46C12.6 47.4 34 47.4 34 47.4s21.4 0 26.7-1.4a8.5 8.5 0 0 0 5.8-5.7C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+          </div>
+          <div class="work-card-body">
+            <span class="work-tag work-tag--hanabi">花火大会</span>
+            <h3 class="work-card-title">さがみ湖花火大会 湖上祭</h3>
+            <p class="work-card-location"><svg class="pin-icon" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="currentColor"/></svg>神奈川県 相模湖</p>
+          </div>
+        </a>
+
+        <!-- 観光 1 -->
+        <a class="work-card reveal" data-category="kanko" style="transition-delay:0.08s"
+           href="./works/sojiji.html">
+          <div class="work-card-media work-card-media--yt">
+            <img src="https://img.youtube.com/vi/PCk2EQ1d7qY/maxresdefault.jpg" alt="横浜市 總持寺" loading="lazy" />
+            <div class="yt-play-btn" aria-hidden="true"><svg viewBox="0 0 68 48" width="54" height="38"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.7 2C55.4.6 34 .6 34 .6S12.6.6 7.3 2A8.5 8.5 0 0 0 1.5 7.7C0 13 0 24 0 24s0 11 1.5 16.3A8.5 8.5 0 0 0 7.3 46C12.6 47.4 34 47.4 34 47.4s21.4 0 26.7-1.4a8.5 8.5 0 0 0 5.8-5.7C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+          </div>
+          <div class="work-card-body">
+            <span class="work-tag work-tag--kanko">観光</span>
+            <h3 class="work-card-title">横浜市 總持寺</h3>
+            <p class="work-card-location"><svg class="pin-icon" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="currentColor"/></svg>神奈川県横浜市 鶴見区</p>
+          </div>
+        </a>
+
+        <!-- 観光 2 -->
+        <a class="work-card reveal" data-category="kanko" style="transition-delay:0.16s"
+           href="./works/oigawa.html">
+          <div class="work-card-media work-card-media--yt">
+            <img src="https://img.youtube.com/vi/gqQlkxLlld4/maxresdefault.jpg" alt="静岡県島田市 大井川鐵道" loading="lazy" />
+            <div class="yt-play-btn" aria-hidden="true"><svg viewBox="0 0 68 48" width="54" height="38"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.7 2C55.4.6 34 .6 34 .6S12.6.6 7.3 2A8.5 8.5 0 0 0 1.5 7.7C0 13 0 24 0 24s0 11 1.5 16.3A8.5 8.5 0 0 0 7.3 46C12.6 47.4 34 47.4 34 47.4s21.4 0 26.7-1.4a8.5 8.5 0 0 0 5.8-5.7C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+          </div>
+          <div class="work-card-body">
+            <span class="work-tag work-tag--kanko">観光</span>
+            <h3 class="work-card-title">静岡県島田市 大井川鐵道</h3>
+            <p class="work-card-location"><svg class="pin-icon" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="currentColor"/></svg>静岡県島田市</p>
+          </div>
+        </a>
+
+        <!-- ウェディング -->
+        <a class="work-card reveal" data-category="wedding"
+           href="./works/nagai-wedding.html">
+          <div class="work-card-media work-card-media--yt">
+            <img src="https://img.youtube.com/vi/VPmd30J2tTk/maxresdefault.jpg" alt="横須賀市 長井ウェディング 船撮影" loading="lazy" />
+            <div class="yt-play-btn" aria-hidden="true"><svg viewBox="0 0 68 48" width="54" height="38"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.7 2C55.4.6 34 .6 34 .6S12.6.6 7.3 2A8.5 8.5 0 0 0 1.5 7.7C0 13 0 24 0 24s0 11 1.5 16.3A8.5 8.5 0 0 0 7.3 46C12.6 47.4 34 47.4 34 47.4s21.4 0 26.7-1.4a8.5 8.5 0 0 0 5.8-5.7C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+          </div>
+          <div class="work-card-body">
+            <span class="work-tag work-tag--wedding">ウェディング</span>
+            <h3 class="work-card-title">横須賀市 長井ウェディング 船撮影</h3>
+            <p class="work-card-location"><svg class="pin-icon" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="currentColor"/></svg>神奈川県横須賀市</p>
+          </div>
+        </a>
+
+        <!-- スポーツ -->
+        <a class="work-card reveal" data-category="sports" style="transition-delay:0.08s"
+           href="./works/diving.html">
+          <div class="work-card-media work-card-media--yt">
+            <img src="https://img.youtube.com/vi/d_11VHMOUWI/maxresdefault.jpg" alt="飛び込み 空撮" loading="lazy" />
+            <div class="yt-play-btn" aria-hidden="true"><svg viewBox="0 0 68 48" width="54" height="38"><path d="M66.5 7.7A8.5 8.5 0 0 0 60.7 2C55.4.6 34 .6 34 .6S12.6.6 7.3 2A8.5 8.5 0 0 0 1.5 7.7C0 13 0 24 0 24s0 11 1.5 16.3A8.5 8.5 0 0 0 7.3 46C12.6 47.4 34 47.4 34 47.4s21.4 0 26.7-1.4a8.5 8.5 0 0 0 5.8-5.7C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+          </div>
+          <div class="work-card-body">
+            <span class="work-tag work-tag--sports">スポーツ</span>
+            <h3 class="work-card-title">飛び込み 空撮</h3>
+            <p class="work-card-location"><svg class="pin-icon" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="currentColor"/></svg>東京都内</p>
+          </div>
+        </a>
+
+      </div><!-- /works-grid -->
+
+      <div class="works-more center reveal">
+        <a href="#contact" class="btn btn-sky">ご依頼・ご相談はこちら</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. FLIGHT ===== -->
+  <section class="section-flight" id="flight">
+    <div class="flight-wave-top">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path d="M0,30 C480,60 960,0 1440,30 L1440,0 L0,0 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="flight-inner">
+        <div class="flight-text reveal">
+          <p class="section-eyebrow">Flight Permission</p>
+          <h2 class="section-title left">飛行申請に<br>関して</h2>
+          <p class="section-lead left">
+            ドローンの飛行には、場所・目的に応じた各種申請が必要です。<br>
+            東京ドローンパークでは、国土交通省への飛行許可申請・<br>
+            各自治体への調整・保険加入サポートまで、<br>
+            安心して飛ばせる環境を整えるお手伝いをします。
+          </p>
+          <div class="flight-btns">
+            <a href="#contact" class="btn btn-sky">申請についてご相談する</a>
+            <a href="#" class="btn btn-outline-sky">申請ガイドを読む</a>
+          </div>
+        </div>
+        <div class="flight-cards reveal" style="transition-delay:0.15s">
+          <div class="flight-step">
+            <div class="flight-step-num">STEP 01</div>
+            <h4>飛行エリアの確認</h4>
+            <p>国土交通省の飛行禁止区域、各自治体の条例、空域情報をもとに飛行可否を確認します。</p>
+          </div>
+          <div class="flight-step">
+            <div class="flight-step-num">STEP 02</div>
+            <h4>必要書類の準備</h4>
+            <p>機体登録、操縦者情報、飛行計画書など、申請に必要な書類一式をサポートします。</p>
+          </div>
+          <div class="flight-step">
+            <div class="flight-step-num">STEP 03</div>
+            <h4>申請・許可取得</h4>
+            <p>国土交通省ドローン情報基盤システム（DIPS）を活用し、スムーズに許可取得を進めます。</p>
+          </div>
+          <div class="flight-step">
+            <div class="flight-step-num">STEP 04</div>
+            <h4>安全な飛行・保険</h4>
+            <p>飛行当日の安全管理・第三者賠償保険の加入もあわせてご案内します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flight-wave-bottom">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path d="M0,30 C360,0 1080,60 1440,30 L1440,60 L0,60 Z" fill="#0A1628"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== 4. CONTACT ===== -->
+  <section class="section-contact" id="contact">
+    <div class="container">
+      <div class="section-header center">
+        <p class="section-eyebrow light">Contact</p>
+        <h2 class="contact-title">お問い合わせ</h2>
+        <p class="contact-lead">空撮のご依頼・飛行申請のご相談など、<br>どんなことでもお気軽にご連絡ください。</p>
+      </div>
+      <div class="contact-grid reveal">
+        <a href="mailto:info@tokyo-drone-park.jp" class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="4" y="10" width="40" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 14 L24 28 L44 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>メールで相談する</h3>
+          <p>info@tokyo-drone-park.jp</p>
+        </a>
+        <a href="tel:0120-000-000" class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M10 8h8l3 9-4.5 2.5A26 26 0 0 0 30 33.5L32.5 29l9 3v8C29 42 6 19 10 8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>電話で相談する</h3>
+          <p>0120-000-000<br><small>平日 9:00〜18:00</small></p>
+        </a>
+        <a href="#" class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="6" y="6" width="36" height="36" rx="8" stroke="currentColor" stroke-width="2"/>
+              <rect x="15" y="15" width="18" height="18" rx="9" stroke="currentColor" stroke-width="2"/>
+              <circle cx="35" cy="13" r="2.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>SNSで相談する</h3>
+          <p>Instagram / X (Twitter)</p>
+        </a>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>お名前 <span class="required">必須</span></label>
+              <input type="text" placeholder="山田 太郎" />
+            </div>
+            <div class="form-group">
+              <label>メールアドレス <span class="required">必須</span></label>
+              <input type="email" placeholder="example@email.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>お問い合わせ種別</label>
+            <select>
+              <option value="">選択してください</option>
+              <option>空撮・映像制作のご依頼</option>
+              <option>飛行申請サポート</option>
+              <option>自治体・企業様向けのご相談</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>メッセージ <span class="required">必須</span></label>
+            <textarea rows="5" placeholder="ご依頼の内容・ご質問をご記入ください"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-white btn-large">送信する</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M20 8 C20 8 28 14 28 20 C28 26 20 32 20 32 C20 32 12 26 12 20 C12 14 20 8 20 8Z" fill="currentColor" opacity="0.2"/>
+              <circle cx="20" cy="20" r="3" fill="currentColor"/>
+              <line x1="20" y1="5" x2="20" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="20" y1="28" x2="20" y2="35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="5" y1="20" x2="12" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="28" y1="20" x2="35" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <span class="footer-logo-ja">東京ドローンパーク</span>
+              <span class="footer-logo-en">TOKYO DRONE PARK</span>
+            </div>
+          </div>
+          <p class="footer-tagline">今日、どこの空を遊ぼうか？</p>
+        </div>
+
+        <div class="footer-nav-group">
+          <div class="footer-nav-col">
+            <p class="footer-nav-head">パークとは</p>
+            <ul>
+              <li><a href="#hero">東京ドローンパークとは</a></li>
+              <li><a href="#works">事例紹介</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-head">飛行申請</p>
+            <ul>
+              <li><a href="#flight">申請サポートとは</a></li>
+              <li><a href="#flight">申請の流れ</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-head">お問い合わせ</p>
+            <ul>
+              <li><a href="#contact">ご依頼・ご相談</a></li>
+              <li><a href="#">会社概要</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">&copy; 2025 東京ドローンパーク All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
