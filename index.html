@@ -291,7 +291,7 @@
         <p class="contact-lead">空撮のご依頼・飛行申請のご相談など、<br>どんなことでもお気軽にご連絡ください。</p>
       </div>
       <div class="contact-grid reveal">
-        <a href="mailto:info@tokyo-drone-park.jp" class="contact-card">
+        <a href="mailto:tokyo.dronepark@gmail.com" class="contact-card">
           <div class="contact-card-icon">
             <svg viewBox="0 0 48 48" fill="none">
               <rect x="4" y="10" width="40" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
@@ -323,20 +323,20 @@
         </a>
       </div>
       <div class="contact-form-wrap reveal">
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form" action="https://formspree.io/f/xbdpoydy" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label>お名前 <span class="required">必須</span></label>
-              <input type="text" placeholder="山田 太郎" />
+              <input type="text" name="name" placeholder="山田 太郎" required />
             </div>
             <div class="form-group">
               <label>メールアドレス <span class="required">必須</span></label>
-              <input type="email" placeholder="example@email.com" />
+              <input type="email" name="email" placeholder="example@email.com" required />
             </div>
           </div>
           <div class="form-group">
             <label>お問い合わせ種別</label>
-            <select>
+            <select name="category">
               <option value="">選択してください</option>
               <option>空撮・映像制作のご依頼</option>
               <option>飛行申請サポート</option>
@@ -346,7 +346,7 @@
           </div>
           <div class="form-group">
             <label>メッセージ <span class="required">必須</span></label>
-            <textarea rows="5" placeholder="ご依頼の内容・ご質問をご記入ください"></textarea>
+            <textarea name="message" rows="5" placeholder="ご依頼の内容・ご質問をご記入ください" required></textarea>
           </div>
           <div class="form-submit">
             <button type="submit" class="btn btn-white btn-large">送信する</button>
