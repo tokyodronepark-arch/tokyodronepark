@@ -579,8 +579,8 @@ ul { list-style: none; }
   gap: 20px;
 }
 .contact-grid--single {
-  grid-template-columns: 1fr;
-  max-width: 320px;
+  grid-template-columns: 320px;
+  justify-content: center;
   margin-inline: auto;
   margin-bottom: 56px;
 }
@@ -653,7 +653,15 @@ ul { list-style: none; }
 /* =============================================
    FOOTER
    ============================================= */
-.site-footer { background: var(--night); color: rgba(255,255,255,0.7); }
+.site-footer { background: #fff; color: rgba(10,22,40,0.65); }
+.footer-top { border-bottom: 1px solid rgba(10,22,40,0.08); }
+.footer-copy { color: rgba(10,22,40,0.35); }
+.footer-nav-head { color: var(--navy); }
+.footer-nav-col a { color: rgba(10,22,40,0.65); }
+.footer-nav-col a:hover { color: var(--sky); }
+.footer-logo-ja { color: var(--navy); }
+.footer-logo-en { color: rgba(10,22,40,0.5); }
+.footer-tagline { color: rgba(10,22,40,0.5); }
 
 .footer-top {
   padding: 64px 0;
