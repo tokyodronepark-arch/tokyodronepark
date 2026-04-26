@@ -744,7 +744,7 @@ ul { list-style: none; }
   }
   .works-filter::-webkit-scrollbar { display: none; }
   .works-filter-btn  { padding: 8px 18px; font-size: 0.8rem; flex-shrink: 0; }
-  .works-grid        { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; gap: 20px; }
+  .works-grid        { grid-template-columns: repeat(3, 1fr); max-width: 100%; margin-inline: auto; gap: 12px; }
 
   /* Flight */
   .section-flight  { padding: 48px 0; }
@@ -784,8 +784,11 @@ ul { list-style: none; }
 
   /* Works */
   .works-filter-btn  { padding: 7px 14px; font-size: 0.75rem; }
-  .works-grid        { max-width: 100%; }
-  .work-card-body    { padding: 16px 16px 20px; }
+  .works-grid        { max-width: 100%; gap: 8px; }
+  .work-card-body    { padding: 8px 8px 12px; }
+  .work-card-title   { font-size: 0.7rem; }
+  .work-card-location { font-size: 0.65rem; }
+  .work-tag          { font-size: 0.6rem; padding: 2px 8px; }
 
   /* Contact form */
   .contact-card      { padding: 28px 18px; }
