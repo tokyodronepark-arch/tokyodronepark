@@ -8,13 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
-    /* ===== MAP PAGE ===== */
     .map-page { padding-top: 72px; min-height: 100vh; display: flex; flex-direction: column; }
 
-    /* Hero band */
     .map-hero {
       background: linear-gradient(135deg, var(--night) 0%, #0e2d52 100%);
       padding: 40px 0 36px;
@@ -41,7 +37,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* Legend */
     .map-legend {
       background: var(--white);
       border-bottom: 1px solid rgba(26,46,74,0.08);
@@ -75,6 +70,7 @@
       border-radius: 100px;
       border: 1.5px solid transparent;
       transition: all 0.2s;
+      background: none;
     }
     .legend-item:hover,
     .legend-item.active { border-color: currentColor; background: rgba(0,0,0,0.04); }
@@ -89,35 +85,44 @@
     .legend-dot--wedding  { background: #D4568A; }
     .legend-dot--sports   { background: #1C8A52; }
 
-    /* Map container */
     #skyMap {
-      height: 520px;
-      max-height: 60vh;
-      z-index: 0;
+      width: 100%;
+      height: 560px;
+      max-height: 65vh;
     }
 
-    /* Leaflet popup customization */
-    .custom-popup .leaflet-popup-content-wrapper {
-      border-radius: 16px;
-      padding: 0;
-      overflow: hidden;
-      box-shadow: 0 12px 40px rgba(10,22,40,0.2);
-      width: 260px;
+    .map-count {
+      background: var(--sky-pale);
+      padding: 12px 0;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      letter-spacing: 0.04em;
     }
-    .custom-popup .leaflet-popup-content {
-      margin: 0;
-      width: 260px !important;
+    .map-count strong { color: var(--sky-dark); }
+
+    /* Google Maps InfoWindow カスタム */
+    .gm-style .gm-style-iw-c {
+      border-radius: 16px !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      box-shadow: 0 12px 40px rgba(10,22,40,0.2) !important;
     }
-    .custom-popup .leaflet-popup-tip-container { display: none; }
+    .gm-style .gm-style-iw-d {
+      overflow: hidden !important;
+      padding: 0 !important;
+    }
+    .gm-style .gm-style-iw-t::after { display: none; }
+    .gm-ui-hover-effect { top: 4px !important; right: 4px !important; }
+
+    .popup-inner { width: 260px; }
     .popup-thumb {
       width: 100%;
       aspect-ratio: 16/9;
       object-fit: cover;
       display: block;
     }
-    .popup-body {
-      padding: 14px 16px 16px;
-    }
+    .popup-body { padding: 14px 16px 16px; }
     .popup-tag {
       display: inline-block;
       font-size: 0.68rem;
@@ -143,9 +148,6 @@
       font-size: 0.75rem;
       color: #8AA0BA;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
     }
     .popup-btn {
       display: block;
@@ -161,25 +163,14 @@
     }
     .popup-btn:hover { background: #1A8FE3; }
 
-    /* Count badge */
-    .map-count {
-      background: var(--sky-pale);
-      padding: 12px 0;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-mid);
-      letter-spacing: 0.04em;
-    }
-    .map-count strong { color: var(--sky-dark); }
-
     @media (max-width: 768px) {
       .map-hero         { padding: 28px 0 24px; }
-      #skyMap           { height: 400px; max-height: 55vw; }
+      #skyMap           { height: 420px; max-height: none; }
       .map-legend-inner { gap: 12px; }
       .legend-item      { padding: 4px 10px; font-size: 0.75rem; }
     }
     @media (max-width: 480px) {
-      #skyMap           { height: 320px; max-height: none; }
+      #skyMap           { height: 360px; }
       .map-legend-inner { gap: 8px; }
     }
   </style>
@@ -232,14 +223,12 @@
 
   <main class="map-page">
 
-    <!-- Hero band -->
     <div class="map-hero">
       <p class="map-hero-eyebrow">Sky Map</p>
       <h1 class="map-hero-title">空マップ</h1>
       <p class="map-hero-lead">撮影した空の記録を、地図から探してみよう。</p>
     </div>
 
-    <!-- Legend -->
     <div class="map-legend">
       <div class="map-legend-inner">
         <span class="map-legend-label">カテゴリ</span>
@@ -264,17 +253,14 @@
       </div>
     </div>
 
-    <!-- Count -->
     <div class="map-count" id="mapCount">
-      全 <strong>8</strong> 件の撮影スポットを表示中
+      全 <strong>9</strong> 件の撮影スポットを表示中
     </div>
 
-    <!-- Map -->
     <div id="skyMap"></div>
 
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-top">
       <div class="container">
@@ -324,100 +310,17 @@
   </footer>
 
   <script src="script.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-  // ===== 撮影スポットデータ =====
   const SPOTS = [
-    {
-      id: 'chofu-koho',
-      title: '調布市 広報動画',
-      cat: 'jichitai',
-      catLabel: '自治体',
-      location: '東京都調布市',
-      lat: 35.6516, lng: 139.5451,
-      ytId: 'OEJQrviZ5Yo',
-      url: './works/chofu-koho.html'
-    },
-    {
-      id: 'chofu-38',
-      title: '第38回 調布花火大会',
-      cat: 'hanabi',
-      catLabel: '花火大会',
-      location: '東京都調布市',
-      lat: 35.6480, lng: 139.5600,
-      ytId: 'XYDlt3i7XVM',
-      url: './works/chofu-hanabi-38.html'
-    },
-    {
-      id: 'chofu-40',
-      title: '第40回 調布花火大会',
-      cat: 'hanabi',
-      catLabel: '花火大会',
-      location: '東京都調布市',
-      lat: 35.6450, lng: 139.5550,
-      ytId: '-4_P7M84UVw',
-      url: './works/chofu-hanabi-40.html'
-    },
-    {
-      id: 'sagamiko',
-      title: 'さがみ湖花火大会 湖上祭',
-      cat: 'hanabi',
-      catLabel: '花火大会',
-      location: '神奈川県相模原市 さがみ湖',
-      lat: 35.6172, lng: 139.1569,
-      ytId: 'iTBbRxLy9ZA',
-      url: './works/sagamiko-hanabi.html'
-    },
-    {
-      id: 'sojiji',
-      title: '横浜市 總持寺',
-      cat: 'kanko',
-      catLabel: '観光',
-      location: '神奈川県横浜市 鶴見区',
-      lat: 35.5052, lng: 139.6768,
-      ytId: 'PCk2EQ1d7qY',
-      url: './works/sojiji.html'
-    },
-    {
-      id: 'oigawa',
-      title: '静岡県島田市 大井川鐵道',
-      cat: 'kanko',
-      catLabel: '観光',
-      location: '静岡県島田市',
-      lat: 34.8344, lng: 138.1762,
-      ytId: 'gqQlkxLlld4',
-      url: './works/oigawa.html'
-    },
-    {
-      id: 'wedding',
-      title: '横須賀市 長井ウェディング',
-      cat: 'wedding',
-      catLabel: 'ウェディング',
-      location: '神奈川県横須賀市 長井',
-      lat: 35.2169, lng: 139.6227,
-      ytId: 'VPmd30J2tTk',
-      url: './works/nagai-wedding.html'
-    },
-    {
-      id: 'diving',
-      title: '飛び込み 空撮',
-      cat: 'sports',
-      catLabel: 'スポーツ',
-      location: '東京都内',
-      lat: 35.6900, lng: 139.7000,
-      ytId: 'd_11VHMOUWI',
-      url: './works/diving.html'
-    },
-    {
-      id: 'sumidagawa',
-      title: '隅田川 春空散歩',
-      cat: 'kanko',
-      catLabel: '観光',
-      location: '東京都墨田区 隅田川',
-      lat: 35.7100, lng: 139.8050,
-      ytId: '1CwuJUdTQOE',
-      url: './works/sumidagawa.html'
-    }
+    { id: 'chofu-koho',  title: '調布市 広報動画',          cat: 'jichitai', catLabel: '自治体',    location: '東京都調布市',          lat: 35.6516, lng: 139.5451, ytId: 'OEJQrviZ5Yo',  url: './works/chofu-koho.html' },
+    { id: 'chofu-38',    title: '第38回 調布花火大会',       cat: 'hanabi',   catLabel: '花火大会',  location: '東京都調布市',          lat: 35.6480, lng: 139.5600, ytId: 'XYDlt3i7XVM',  url: './works/chofu-hanabi-38.html' },
+    { id: 'chofu-40',    title: '第40回 調布花火大会',       cat: 'hanabi',   catLabel: '花火大会',  location: '東京都調布市',          lat: 35.6450, lng: 139.5550, ytId: '-4_P7M84UVw',  url: './works/chofu-hanabi-40.html' },
+    { id: 'sagamiko',    title: 'さがみ湖花火大会 湖上祭',   cat: 'hanabi',   catLabel: '花火大会',  location: '神奈川県相模原市',       lat: 35.6172, lng: 139.1569, ytId: 'iTBbRxLy9ZA',  url: './works/sagamiko-hanabi.html' },
+    { id: 'sojiji',      title: '横浜市 總持寺',             cat: 'kanko',    catLabel: '観光',      location: '神奈川県横浜市 鶴見区', lat: 35.5052, lng: 139.6768, ytId: 'PCk2EQ1d7qY',  url: './works/sojiji.html' },
+    { id: 'oigawa',      title: '静岡県島田市 大井川鐵道',   cat: 'kanko',    catLabel: '観光',      location: '静岡県島田市',          lat: 34.8344, lng: 138.1762, ytId: 'gqQlkxLlld4',  url: './works/oigawa.html' },
+    { id: 'wedding',     title: '横須賀市 長井ウェディング', cat: 'wedding',  catLabel: 'ウェディング', location: '神奈川県横須賀市',    lat: 35.2169, lng: 139.6227, ytId: 'VPmd30J2tTk',  url: './works/nagai-wedding.html' },
+    { id: 'diving',      title: '飛び込み 空撮',             cat: 'sports',   catLabel: 'スポーツ',  location: '東京都内',              lat: 35.6900, lng: 139.7000, ytId: 'd_11VHMOUWI',  url: './works/diving.html' },
+    { id: 'sumidagawa',  title: '隅田川 春空散歩',           cat: 'kanko',    catLabel: '観光',      location: '東京都墨田区 隅田川',   lat: 35.7100, lng: 139.8050, ytId: '1CwuJUdTQOE',  url: './works/sumidagawa.html' }
   ];
 
   const CAT_COLORS = {
@@ -428,93 +331,95 @@
     sports:   '#1C8A52'
   };
 
-  // ===== Leaflet map init =====
-  const map = L.map('skyMap', {
-    center: [35.55, 139.35],
-    zoom: 9,
-    minZoom: 7,
-    maxZoom: 13,
-    zoomControl: true,
-    scrollWheelZoom: false,   // スクロール誤操作を防ぐ
-    preferCanvas: true        // Canvasレンダリングで軽量化
-  });
-
-  // CartoDB Positron — clean light tiles, no API key
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 13,
-    updateWhenZooming: false,  // ズーム中のタイル更新を抑制
-    keepBuffer: 1              // バッファを最小に
-  }).addTo(map);
-
-  // Custom circular marker
-  function makeIcon(color) {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="44" viewBox="0 0 36 44">
-      <filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/></filter>
-      <path d="M18 0C8.06 0 0 8.06 0 18c0 13.5 18 26 18 26S36 31.5 36 18C36 8.06 27.94 0 18 0z" fill="${color}" filter="url(#s)"/>
-      <circle cx="18" cy="18" r="9" fill="white" opacity="0.9"/>
-      <path d="M18 10C18 10 22 13.5 22 17C22 20.5 18 24 18 24C18 24 14 20.5 14 17C14 13.5 18 10 18 10Z" fill="${color}" opacity="0.6"/>
-      <circle cx="18" cy="17" r="2.5" fill="${color}"/>
-    </svg>`;
-    return L.divIcon({
-      html: svg,
-      className: '',
-      iconSize: [36, 44],
-      iconAnchor: [18, 44],
-      popupAnchor: [0, -46]
-    });
-  }
-
-  // Pin icon inside popup
-  const PIN = `<svg width="11" height="14" viewBox="0 0 14 18" fill="none"><path d="M7 0C4.24 0 2 2.24 2 5c0 3.75 5 13 5 13s5-9.25 5-13c0-2.76-2.24-5-5-5z" fill="#8AA0BA"/></svg>`;
-
-  // Create markers
-  const markers = [];
-  SPOTS.forEach(spot => {
-    const color  = CAT_COLORS[spot.cat];
-    const icon   = makeIcon(color);
-    const thumb  = `https://img.youtube.com/vi/${spot.ytId}/mqdefault.jpg`;
-    const popup  = L.popup({ className: 'custom-popup', maxWidth: 260, minWidth: 260 })
-      .setContent(`
-        <img class="popup-thumb" src="${thumb}" alt="${spot.title}" />
-        <div class="popup-body">
-          <span class="popup-tag popup-tag--${spot.cat}">${spot.catLabel}</span>
-          <p class="popup-title">${spot.title}</p>
-          <p class="popup-location">${PIN} ${spot.location}</p>
-          <a class="popup-btn" href="${spot.url}">事例を見る →</a>
-        </div>
-      `);
-
-    const marker = L.marker([spot.lat, spot.lng], { icon })
-      .addTo(map)
-      .bindPopup(popup);
-
-    marker._spotCat = spot.cat;
-    markers.push(marker);
-  });
-
-  // ===== カテゴリフィルター =====
+  let gMap, infoWindow;
+  let markers = [];
   let currentCat = 'all';
-  const countEl  = document.getElementById('mapCount');
 
-  document.querySelectorAll('.legend-item').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.legend-item').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentCat = btn.dataset.cat;
+  function initMap() {
+    gMap = new google.maps.Map(document.getElementById('skyMap'), {
+      center: { lat: 35.55, lng: 139.35 },
+      zoom: 9,
+      mapTypeId: 'roadmap',
+      gestureHandling: 'cooperative',
+      styles: [
+        { featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+        { featureType: 'transit', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+        { featureType: 'water', stylers: [{ color: '#cde8f6' }] },
+        { featureType: 'landscape', stylers: [{ color: '#f5f5f0' }] },
+        { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] },
+        { featureType: 'road.arterial', elementType: 'geometry', stylers: [{ color: '#eeeeee' }] },
+        { featureType: 'administrative', elementType: 'geometry.stroke', stylers: [{ color: '#c9c9c9' }] }
+      ]
+    });
 
-      let count = 0;
-      markers.forEach((m, i) => {
-        const match = currentCat === 'all' || SPOTS[i].cat === currentCat;
-        if (match) { m.addTo(map); count++; }
-        else        { m.remove(); }
+    infoWindow = new google.maps.InfoWindow({ maxWidth: 260 });
+
+    SPOTS.forEach(spot => {
+      const color = CAT_COLORS[spot.cat];
+      const svgIcon = {
+        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="44" viewBox="0 0 36 44">
+            <filter id="s"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/></filter>
+            <path d="M18 0C8.06 0 0 8.06 0 18c0 13.5 18 26 18 26S36 31.5 36 18C36 8.06 27.94 0 18 0z" fill="${color}" filter="url(#s)"/>
+            <circle cx="18" cy="18" r="9" fill="white" opacity="0.9"/>
+            <circle cx="18" cy="17" r="3" fill="${color}"/>
+          </svg>`),
+        scaledSize: new google.maps.Size(36, 44),
+        anchor: new google.maps.Point(18, 44)
+      };
+
+      const marker = new google.maps.Marker({
+        position: { lat: spot.lat, lng: spot.lng },
+        map: gMap,
+        icon: svgIcon,
+        title: spot.title
       });
 
-      const label = currentCat === 'all' ? '全' : `${btn.querySelector('span + *')?.textContent ?? currentCat}`;
-      countEl.innerHTML = `${label === '全' ? '全' : '<strong>' + label + '</strong>'} <strong>${count}</strong> 件の撮影スポットを表示中`;
+      marker.spotCat = spot.cat;
+
+      const content = `
+        <div class="popup-inner">
+          <img class="popup-thumb" src="https://img.youtube.com/vi/${spot.ytId}/mqdefault.jpg" alt="${spot.title}" />
+          <div class="popup-body">
+            <span class="popup-tag popup-tag--${spot.cat}">${spot.catLabel}</span>
+            <p class="popup-title">${spot.title}</p>
+            <p class="popup-location">📍 ${spot.location}</p>
+            <a class="popup-btn" href="${spot.url}">事例を見る →</a>
+          </div>
+        </div>`;
+
+      marker.addListener('click', () => {
+        infoWindow.setContent(content);
+        infoWindow.open(gMap, marker);
+      });
+
+      markers.push(marker);
     });
-  });
+
+    // カテゴリフィルター
+    const countEl = document.getElementById('mapCount');
+    document.querySelectorAll('.legend-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.legend-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCat = btn.dataset.cat;
+        infoWindow.close();
+
+        let count = 0;
+        markers.forEach((m, i) => {
+          const match = currentCat === 'all' || SPOTS[i].cat === currentCat;
+          m.setMap(match ? gMap : null);
+          if (match) count++;
+        });
+
+        const label = currentCat === 'all' ? `全 <strong>${count}</strong> 件` : `<strong>${count}</strong> 件`;
+        countEl.innerHTML = `${label}の撮影スポットを表示中`;
+      });
+    });
+  }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoH9M2vOMY4jqINJToE2gb6Wa9pMzsz38&callback=initMap&language=ja">
   </script>
 </body>
 </html>
