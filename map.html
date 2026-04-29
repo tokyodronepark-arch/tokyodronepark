@@ -36,6 +36,18 @@
       color: rgba(255,255,255,0.55);
       letter-spacing: 0.06em;
     }
+    .map-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+    .map-back-btn:hover { color: rgba(255,255,255,0.9); }
 
     .map-legend {
       background: var(--white);
@@ -224,6 +236,10 @@
   <main class="map-page">
 
     <div class="map-hero">
+      <a href="index.html" class="map-back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        トップに戻る
+      </a>
       <p class="map-hero-eyebrow">Sky Map</p>
       <h1 class="map-hero-title">空マップ</h1>
       <p class="map-hero-lead">撮影した空の記録を、地図から探してみよう。</p>
