@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ドローンメディア｜東京ドローンパーク</title>
+  <meta name="description" content="東京ドローンパークのドローンメディア。飛行申請ガイド・空撮入門・法律解説・機材レビューなど、ドローンに関するお役立ち記事を発信しています。" />
+  <meta property="og:title" content="ドローンメディア｜東京ドローンパーク" />
+  <meta property="og:description" content="ドローン飛行申請・空撮・法律・機材に関する記事を発信するドローンメディアです。" />
+  <meta property="og:url" content="https://tokyodronepark.vercel.app/blog/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="東京ドローンパーク" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="blog.css" />
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M20 8 C20 8 28 14 28 20 C28 26 20 32 20 32 C20 32 12 26 12 20 C12 14 20 8 20 8Z" fill="currentColor" opacity="0.15"/>
+            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+            <line x1="20" y1="5" x2="20" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="20" y1="28" x2="20" y2="35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="5" y1="20" x2="12" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="28" y1="20" x2="35" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-tagline">空と遊ぶメディア</span>
+          <span class="logo-ja">東京ドローンパーク</span>
+          <span class="logo-en">-Tokyo Drone Park-</span>
+        </div>
+      </a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="../index.html#works">事例紹介</a></li>
+          <li><a href="../map.html">空マップ</a></li>
+          <li><a href="index.html" class="nav-active">メディア</a></li>
+          <li><a href="../index.html#flight">飛行申請に関して</a></li>
+          <li><a href="../index.html#contact" class="nav-btn">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="../index.html#works" class="mobile-link">事例紹介</a></li>
+      <li><a href="../map.html" class="mobile-link">空マップ</a></li>
+      <li><a href="index.html" class="mobile-link">メディア</a></li>
+      <li><a href="../index.html#flight" class="mobile-link">飛行申請に関して</a></li>
+      <li><a href="../index.html#contact" class="mobile-link">お問い合わせ</a></li>
+    </ul>
+  </div>
+
+  <div class="blog-index-wrap">
+
+    <!-- Hero -->
+    <div class="blog-index-hero">
+      <p class="eyebrow">Drone Media</p>
+      <h1>ドローンメディア</h1>
+      <p>飛行申請・空撮・法律・機材など、ドローンに関するお役立ち情報を発信しています。</p>
+    </div>
+
+    <!-- Filter -->
+    <div class="blog-filter">
+      <div class="container">
+        <div class="blog-filter-inner">
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;color:var(--text-mid);text-transform:uppercase;margin-right:4px;">カテゴリ</span>
+          <button class="filter-btn active" data-filter="all">すべて</button>
+          <button class="filter-btn" data-filter="aerial">空撮</button>
+          <button class="filter-btn" data-filter="flight">飛行申請</button>
+          <button class="filter-btn" data-filter="beginner">基礎知識</button>
+          <button class="filter-btn" data-filter="law">法律・資格</button>
+          <button class="filter-btn" data-filter="gear">機材</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Grid -->
+    <div class="container">
+      <div class="blog-grid" id="blogGrid">
+
+        <!-- ① ピラー記事 -->
+        <a href="drone-aerial-photography-guide.html" class="blog-card" data-cat="aerial">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0A1628,#1a3a6b);">🚁</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--aerial" style="font-size:0.65rem;padding:3px 10px;">空撮</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月1日</span>
+            </div>
+            <p class="blog-card-title">ドローン空撮とは？依頼方法・費用・活用事例を徹底解説【2025年版】</p>
+            <p class="blog-card-desc">空撮の仕組みから費用相場・活用シーン・業者選びのポイントまで。花火・自治体・ウェディングなど多数の実績をもとに解説します。</p>
+          </div>
+        </a>
+
+        <!-- ② ピラー記事 -->
+        <a href="drone-flight-permission-guide.html" class="blog-card" data-cat="flight">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0e2d52,#1A7AC8);">📋</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--flight" style="font-size:0.65rem;padding:3px 10px;">飛行申請</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月1日</span>
+            </div>
+            <p class="blog-card-title">ドローン飛行申請の完全ガイド【2025年最新】DIPS2.0の手順も解説</p>
+            <p class="blog-card-desc">申請が必要なケース・DIPS2.0の使い方・よくあるミスまで。実績ある空撮プロが実務経験をもとに徹底解説します。</p>
+          </div>
+        </a>
+
+        <!-- ③ ピラー記事 -->
+        <a href="drone-beginner-guide.html" class="blog-card" data-cat="beginner">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0e3830,#1a6b55);">🌱</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--beginner" style="font-size:0.65rem;padding:3px 10px;">基礎知識</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月2日</span>
+            </div>
+            <p class="blog-card-title">ドローン完全入門ガイド【2025年版】免許・法律・機体選びまで解説</p>
+            <p class="blog-card-desc">「何から始めれば？」という疑問に一冊で答える完全ガイド。法律・免許・機体選び・飛行申請のステップを解説します。</p>
+          </div>
+        </a>
+
+        <!-- ④ -->
+        <a href="fireworks-drone-aerial.html" class="blog-card" data-cat="aerial">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#2a0a1e,#8B1A5A);">🎆</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--aerial" style="font-size:0.65rem;padding:3px 10px;">空撮</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月3日</span>
+            </div>
+            <p class="blog-card-title">花火大会をドローンで空撮する方法と注意点【許可申請から撮影まで】</p>
+            <p class="blog-card-desc">花火大会の空撮に必要な許可申請・安全対策・撮影テクニックを解説。調布・さがみ湖の実績をもとに解説します。</p>
+          </div>
+        </a>
+
+        <!-- ⑤ -->
+        <a href="wedding-drone-aerial.html" class="blog-card" data-cat="aerial">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1a1230,#5B1A8B);">💍</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--aerial" style="font-size:0.65rem;padding:3px 10px;">空撮</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月4日</span>
+            </div>
+            <p class="blog-card-title">ウェディング空撮の全知識｜費用・業者選び・当日の流れを解説</p>
+            <p class="blog-card-desc">ウェディング空撮の費用相場・業者選びのポイント・当日スケジュールまで。横須賀での結婚式空撮実績をもとに解説します。</p>
+          </div>
+        </a>
+
+        <!-- ⑥ -->
+        <a href="municipal-drone-pr-video.html" class="blog-card" data-cat="aerial">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0a2010,#1a6b30);">🏛️</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--aerial" style="font-size:0.65rem;padding:3px 10px;">自治体・PR</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月5日</span>
+            </div>
+            <p class="blog-card-title">自治体・企業のPR動画にドローン映像を使うメリットと活用事例</p>
+            <p class="blog-card-desc">自治体・企業のPR動画へのドローン映像活用メリットと事例を解説。調布市広報動画など豊富な実績をご紹介します。</p>
+          </div>
+        </a>
+
+        <!-- ⑦ -->
+        <a href="dips2-how-to-use.html" class="blog-card" data-cat="flight">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0a1628,#1A4A8A);">💻</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--flight" style="font-size:0.65rem;padding:3px 10px;">飛行申請</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月6日</span>
+            </div>
+            <p class="blog-card-title">DIPS2.0の使い方を図解ステップで解説【飛行申請の全手順】</p>
+            <p class="blog-card-desc">アカウント作成から許可証取得まで全手順を解説。初めての方でも迷わないDIPS2.0完全ガイドです。</p>
+          </div>
+        </a>
+
+        <!-- ⑧ -->
+        <a href="drone-prohibited-area-map.html" class="blog-card" data-cat="flight">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#200a0a,#8B1A1A);">🗺️</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--flight" style="font-size:0.65rem;padding:3px 10px;">飛行申請</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月7日</span>
+            </div>
+            <p class="blog-card-title">ドローン飛行禁止区域の調べ方と地図の見方【東京・関東版】</p>
+            <p class="blog-card-desc">飛行禁止区域の種類と確認ツールを解説。東京・関東エリアの具体的な注意点と空マップの活用法も紹介します。</p>
+          </div>
+        </a>
+
+        <!-- ⑨ -->
+        <a href="drone-insurance-guide.html" class="blog-card" data-cat="beginner">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0a1e20,#1a6b70);">🛡️</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--beginner" style="font-size:0.65rem;padding:3px 10px;">基礎知識</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月8日</span>
+            </div>
+            <p class="blog-card-title">ドローン保険の選び方｜賠償責任保険・機体保険を徹底比較</p>
+            <p class="blog-card-desc">賠償責任保険・機体保険の違いと選び方を解説。飛行申請時の保険要件やプロ向け保険の選び方も紹介します。</p>
+          </div>
+        </a>
+
+        <!-- ⑩ -->
+        <a href="drone-license-guide.html" class="blog-card" data-cat="law">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1e1a0a,#6b5a1a);">📜</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--law" style="font-size:0.65rem;padding:3px 10px;">法律・資格</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月9日</span>
+            </div>
+            <p class="blog-card-title">ドローン免許・資格の種類と取り方【一等・二等 操縦士を徹底解説】</p>
+            <p class="blog-card-desc">国家資格「無人航空機操縦士」一等・二等の違い、取得方法、費用を解説。民間資格との違いも詳しく説明します。</p>
+          </div>
+        </a>
+
+        <!-- ⑪ -->
+        <a href="drone-camera-selection.html" class="blog-card" data-cat="gear">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1a0a2e,#5B1A8B);">📷</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--gear" style="font-size:0.65rem;padding:3px 10px;">機材</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月10日</span>
+            </div>
+            <p class="blog-card-title">空撮向けドローン機体の選び方｜DJI・その他メーカー比較2025</p>
+            <p class="blog-card-desc">DJI Mavicシリーズ・Air・Miniシリーズの比較と、プロユースに適した機体の選び方を実際の空撮実績をもとに紹介します。</p>
+          </div>
+        </a>
+
+        <!-- ⑫ -->
+        <a href="drone-law-2025.html" class="blog-card" data-cat="law">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1e0a0a,#8B2020);">⚖️</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--law" style="font-size:0.65rem;padding:3px 10px;">法律・規制</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月11日</span>
+            </div>
+            <p class="blog-card-title">ドローン法改正2025年版｜最新の規制・カテゴリー飛行まとめ</p>
+            <p class="blog-card-desc">カテゴリーI〜IIIの違い、機体登録義務、禁止空域など、2025年最新のドローン規制をわかりやすくまとめました。</p>
+          </div>
+        </a>
+
+        <!-- ⑬ -->
+        <a href="fireworks-drone-regulations.html" class="blog-card" data-cat="flight">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#2a0a1e,#6B1A4A);">🎇</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--flight" style="font-size:0.65rem;padding:3px 10px;">飛行申請</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月12日</span>
+            </div>
+            <p class="blog-card-title">花火大会上空のドローン飛行規制まとめ｜申請が必要なケースを解説</p>
+            <p class="blog-card-desc">催し場所上空・夜間・DID地区が複合する花火大会の申請に必要なことを実績ある空撮プロが解説します。</p>
+          </div>
+        </a>
+
+        <!-- ⑭ -->
+        <a href="wedding-drone-cost.html" class="blog-card" data-cat="aerial">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1a0a2e,#8B1A5A);">💎</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--aerial" style="font-size:0.65rem;padding:3px 10px;">空撮</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月13日</span>
+            </div>
+            <p class="blog-card-title">ウェディング空撮の費用相場と業者選びのポイント</p>
+            <p class="blog-card-desc">費用相場と業者選びの重要ポイントを解説。飛行申請対応・保険加入・実績確認など後悔しない業者選びの基準を紹介します。</p>
+          </div>
+        </a>
+
+        <!-- ⑮ -->
+        <a href="tourism-pr-aerial-video.html" class="blog-card" data-cat="aerial">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0a1e10,#1a6B3A);">🗾</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--aerial" style="font-size:0.65rem;padding:3px 10px;">自治体・観光</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月14日</span>
+            </div>
+            <p class="blog-card-title">観光PR動画の空撮活用術｜自治体・観光協会向けガイド</p>
+            <p class="blog-card-desc">観光PR動画へのドローン空撮活用方法を自治体・観光協会向けに解説。制作の流れと費用感もご紹介します。</p>
+          </div>
+        </a>
+
+        <!-- ⑯ -->
+        <a href="tokyo-drone-flight-tips.html" class="blog-card" data-cat="flight">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0a1628,#0e3a6e);">🗼</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--flight" style="font-size:0.65rem;padding:3px 10px;">飛行申請</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月15日</span>
+            </div>
+            <p class="blog-card-title">東京都内でドローンを飛ばすときの申請注意点まとめ</p>
+            <p class="blog-card-desc">都心ほぼ全域がDID地区・空港周辺制限が複合する東京での飛行申請の実情と注意点をまとめました。</p>
+          </div>
+        </a>
+
+        <!-- ⑰ -->
+        <a href="river-park-drone-permission.html" class="blog-card" data-cat="flight">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0a1e28,#1a5B7A);">🌊</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--flight" style="font-size:0.65rem;padding:3px 10px;">飛行申請</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月16日</span>
+            </div>
+            <p class="blog-card-title">河川・公園でドローンを飛ばす許可の取り方【手順と注意点】</p>
+            <p class="blog-card-desc">河川・公園での飛行許可の取り方を解説。一級河川・都市公園・国立公園それぞれの申請先と手順をまとめました。</p>
+          </div>
+        </a>
+
+        <!-- ⑱ -->
+        <a href="drone-registration-steps.html" class="blog-card" data-cat="beginner">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1e1e0a,#5A6B1A);">🔖</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--beginner" style="font-size:0.65rem;padding:3px 10px;">基礎知識</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月17日</span>
+            </div>
+            <p class="blog-card-title">ドローン機体登録の手順【2025年版 わかりやすく解説】</p>
+            <p class="blog-card-desc">DRS（ドローン登録システム）への登録からJU-ID取得・機体への表示方法まで、ステップで解説します。</p>
+          </div>
+        </a>
+
+        <!-- ⑲ -->
+        <a href="drone-license-1st-2nd.html" class="blog-card" data-cat="law">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1e1a0a,#7A5B1A);">🏅</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--law" style="font-size:0.65rem;padding:3px 10px;">法律・資格</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月18日</span>
+            </div>
+            <p class="blog-card-title">一等・二等 無人航空機操縦士の違いと試験内容を徹底解説</p>
+            <p class="blog-card-desc">飛行できる範囲、試験内容、費用、取得の流れまで、一等・二等操縦士の違いを2025年最新情報で比較します。</p>
+          </div>
+        </a>
+
+        <!-- ⑳ -->
+        <a href="dji-mavic-review-2025.html" class="blog-card" data-cat="gear">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0a0a1e,#1A1A6B);">🎥</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--gear" style="font-size:0.65rem;padding:3px 10px;">機材レビュー</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月19日</span>
+            </div>
+            <p class="blog-card-title">DJI Mavic 3 Pro レビュー｜空撮プロが実際に使って感じたこと</p>
+            <p class="blog-card-desc">3眼カメラシステムの使い勝手、飛行安定性、バッテリー持ちなど、実際の撮影現場での運用感を正直にレビューします。</p>
+          </div>
+        </a>
+
+        <!-- ㉑ -->
+        <a href="tokyo-drone-flyable-spots.html" class="blog-card" data-cat="flight">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0a1e28,#1a4A6B);">📍</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category blog-category--flight" style="font-size:0.65rem;padding:3px 10px;">撮影スポット</span>
+              <span style="font-size:0.72rem;color:var(--text-mid);">2025年5月20日</span>
+            </div>
+            <p class="blog-card-title">東京でドローンが飛ばせる場所まとめ【許可不要スポットも紹介】</p>
+            <p class="blog-card-desc">東京で飛ばせる場所を許可不要スポット含めてまとめました。空マップと合わせて撮影スポット探しにご活用ください。</p>
+          </div>
+        </a>
+
+      </div><!-- /blog-grid -->
+    </div>
+
+  </div><!-- /blog-index-wrap -->
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M20 8 C20 8 28 14 28 20 C28 26 20 32 20 32 C20 32 12 26 12 20 C12 14 20 8 20 8Z" fill="currentColor" opacity="0.2"/>
+              <circle cx="20" cy="20" r="3" fill="currentColor"/>
+              <line x1="20" y1="5" x2="20" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="20" y1="28" x2="20" y2="35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="5" y1="20" x2="12" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="28" y1="20" x2="35" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <span class="footer-logo-ja">東京ドローンパーク</span>
+              <span class="footer-logo-en">TOKYO DRONE PARK</span>
+            </div>
+          </div>
+          <p class="footer-tagline">今日、どの空を遊ぼうか。</p>
+        </div>
+        <div class="footer-nav-group">
+          <div class="footer-nav-col">
+            <p class="footer-nav-head">事例紹介</p>
+            <ul><li><a href="../index.html#works">すべての事例</a></li></ul>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-head">飛行申請</p>
+            <ul><li><a href="../index.html#flight">申請サポートとは</a></li></ul>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-head">お問い合わせ</p>
+            <ul><li><a href="../index.html#contact">ご依頼・ご相談</a></li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">&copy; 2025 東京ドローンパーク All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    // Category filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.blog-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
