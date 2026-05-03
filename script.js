@@ -149,3 +149,44 @@ window.addEventListener('scroll', () => {
   const y = window.scrollY;
   heroContent.style.transform = `translateY(${y * 0.25}px)`;
 }, { passive: true });
+
+// ---- Contact form feedback ----
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // 送信中
+    submitBtn.textContent = '送信中...';
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        // 送信完了
+        submitBtn.textContent = '送信完了 ✓';
+        submitBtn.style.opacity = '1';
+        submitBtn.style.background = '#5BCFB5';
+        submitBtn.style.color = '#fff';
+        contactForm.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      submitBtn.textContent = '送信失敗 — 再度お試しください';
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      submitBtn.style.background = '#ff6b6b';
+      submitBtn.style.color = '#fff';
+    }
+  });
+}
+
