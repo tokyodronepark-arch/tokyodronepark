@@ -40,6 +40,7 @@
       </a>
       <nav class="global-nav">
         <ul>
+          <li><a href="../index.html" class="nav-top-btn">← TOP</a></li>
           <li><a href="../index.html#works">事例紹介</a></li>
           <li><a href="../map.html">空マップ</a></li>
           <li><a href="index.html" class="nav-active">メディア</a></li>
@@ -420,19 +421,21 @@
   <script src="../script.js"></script>
   <script>
     // Category filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.blog-card');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        cards.forEach(card => {
-          if (filter === 'all' || card.dataset.cat === filter) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
+    document.addEventListener('DOMContentLoaded', function () {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.blog-card');
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          cards.forEach(function (card) {
+            if (filter === 'all' || card.getAttribute('data-cat') === filter) {
+              card.style.display = '';  // CSSの display: flex に戻す
+            } else {
+              card.style.display = 'none';
+            }
+          });
         });
       });
     });
