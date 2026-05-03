@@ -444,7 +444,41 @@
   flex: 1;
 }
 
+/* ----- HOME button (fixed, back to top page) ----- */
+.blog-home-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 14px 10px;
+  background: rgba(10, 22, 40, 0.82);
+  color: #fff;
+  border-radius: 14px;
+  text-decoration: none;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  z-index: 900;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.blog-home-btn svg { stroke: #fff; display: block; }
+.blog-home-btn:hover {
+  background: rgba(77, 184, 255, 0.92);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(77,184,255,0.35);
+}
+
 /* ----- Responsive ----- */
+@media (max-width: 600px) {
+  .blog-home-btn { bottom: 16px; right: 14px; padding: 10px 12px 8px; }
+}
 @media (max-width: 960px) {
   .blog-layout {
     grid-template-columns: 1fr;
